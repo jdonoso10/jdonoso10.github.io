@@ -105,6 +105,7 @@ h3 {
     margin-bottom: 10px;
     font-weight: bold;
 }
+
 header {
     font-family: 'Comic Sans MS', cursive, sans-serif; 
     font-size: 60px; 
@@ -126,4 +127,71 @@ select {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+/* Media Queries para hacer el diseño adaptable a dispositivos móviles */
+
+/* Dispositivos con pantallas pequeñas (como teléfonos) */
+@media (max-width: 768px) {
+    #div-principal {
+        width: 90%; /* Aumentar el ancho en pantallas pequeñas */
+        padding: 15px; /* Reducir padding */
+    }
+
+    /* Modificar el tamaño de los botones */
+    button {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    /* Hacer que los libros ocupen más espacio en pantallas pequeñas */
+    .libro {
+        width: 100%; /* Los libros ocuparán el 100% de ancho disponible */
+        margin-bottom: 20px; /* Espaciado entre los libros */
+    }
+
+    /* Ajustar la fuente de los títulos */
+    h3 {
+        font-size: 18px; /* Reducir tamaño de fuente */
+    }
+
+    /* Hacer que las imágenes sean más pequeñas en pantallas pequeñas */
+    .imagen img {
+        max-height: 250px; /* Limitar la altura de las imágenes en dispositivos pequeños */
+    }
+
+    /* Acomodar los botones en una sola columna */
+    #formseleccion {
+        flex-direction: column; /* Cambiar la dirección de los botones */
+        align-items: center; /* Centrar los botones */
+    }
+
+    /* Reducir el tamaño del header */
+    header {
+        font-size: 40px; /* Reducir tamaño de fuente en header */
+        padding: 20px 0; /* Reducir padding */
+    }
+}
+
+/* Dispositivos más pequeños (como teléfonos muy pequeños) */
+@media (max-width: 480px) {
+    /* Reducir el tamaño de las fuentes aún más */
+    h1, h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    /* Asegurar que el header se ajuste en dispositivos muy pequeños */
+    header {
+        font-size: 30px;
+        padding: 15px 0;
+    }
 }
