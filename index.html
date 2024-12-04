@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio_05</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>LIBRERÍA PACO</header>
+    <br>
+    <div id="div-principal">
+        <div id="formseleccion">
+            <button id="boton-filosofia">Filosofía</button>
+            <button id="boton-fantasia">Fantasía</button>
+            <button id="boton-horror">Horror</button>
+            <button id="boton-todos">Todos</button>
+            <select id="genero">
+                <option value="" disabled selected>Buscar...</option>
+                <option value="libro">Todos</option>
+                <option value="filosofia">Filosofía</option>
+                <option value="fantasia">Fantasía</option>
+                <option value="horror">Horror</option>
+            </select>
+        </div>
+        <br>
+        <hr>
+
+        <div id="lista_libros">
+            <div class="libro filosofia">
+                <h3>El Libro de la Filosofía</h3><br>
+                <div class="imagen">
+                    <img
+                        src="https://images.cdn2.buscalibre.com/fit-in/360x360/67/06/67067f9157a9a1473261a3df42e51ff0.jpg">
+                </div>
+                <div class="contenido">
+                    <span>Autor: Gregory Bassham</span>
+                    <br>
+                    <span>Precio: 20€</span>
+                </div>
+            </div>
+            <div class="libro fantasia">
+                <h3>Juego de Tronos</h3><br>
+                <div class="imagen">
+                    <img src="https://www.unebook.es/blog/wp-content/uploads/2020/05/Juego_de_Tronos-657x1024.jpg">
+                </div>
+                <div class="contenido">
+                    <span>Autor: Geroge R.R. Martin</span>
+                    <br>
+                    <span>Precio: 25€</span>
+                </div>
+            </div>
+            <div class="libro fantasia horror">
+                <h3>Los mitos de Cthulu</h3><br>
+                <div class="imagen">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71NTZZX6NwL.jpg">
+                </div>
+                <div class="contenido">
+                    <span>Autor: H.P. Lovecraft</span>
+                    <br>
+                    <span>Precio: 19€</span>
+                </div>
+            </div>
+            <div class="libro filosofia">
+                <h3>La República</h3><br>
+                <div class="imagen">
+                    <img src="https://m.media-amazon.com/images/I/91citIJeJLL._UF1000,1000_QL80_.jpg"
+                        alt="La República">
+                </div>
+                <div class="contenido">
+                    <span>Autor: Platón</span><br>
+                    <span>Precio: 15€</span>
+                </div>
+            </div>
+            <div class="libro fantasia">
+                <h3>El Hobbit</h3><br>
+                <div class="imagen">
+                    <img src="https://www.margenlibros.com/imagenes/9788445/978844507485.JPG"
+                        alt="El Hobbit">
+                </div>
+                <div class="contenido">
+                    <span>Autor: J.R.R. Tolkien</span><br>
+                    <span>Precio: 22€</span>
+                </div>
+            </div>
+
+            <div class="libro horror">
+                <h3>It</h3><br>
+                <div class="imagen">
+                    <img src="https://m.media-amazon.com/images/I/71ZIovNjw+L._AC_UF1000,1000_QL80_.jpg"
+                        alt="It">
+                </div>
+                <div class="contenido">
+                    <span>Autor: Stephen King</span><br>
+                    <span>Precio: 19€</span>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+<script src="codigo.js"></script>

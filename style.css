@@ -1,0 +1,129 @@
+/* General body and page styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Suave gris claro */
+    color: #333; /* Color de texto oscuro para contraste */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+h1, h2 {
+    color: #3a5a40; /* Color verde suave */
+    text-align: center;
+}
+
+
+/* Contenedor principal */
+#div-principal {
+    width: 80%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0; /* Gris suave */
+}
+
+/* Estilo para los botones */
+#formseleccion {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #639b8f; /* Verde suave */
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6c9e8c; /* Color más oscuro en hover */
+}
+
+/* Estilos para los libros */
+#lista_libros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.libro {
+    background-color: #f9f9f9; /* Fondo muy suave para los libros */
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Evita que las imágenes o el contenido se desborden */
+}
+
+.libro:hover {
+    transform: translateY(-8px); /* Movimiento más sutil */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.imagen img {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original */
+    max-height: 350px; /* Limita la altura máxima de las imágenes */
+    object-fit: cover; /* Hace que la imagen ocupe todo el espacio sin distorsionarse */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    border: 2px solid #ddd; /* Borde sutil alrededor de las imágenes */
+    transition: transform 0.3s ease; /* Agrega animación al pasar el ratón */
+}
+
+.imagen img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
+}
+
+.contenido {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777; /* Gris suave para el texto */
+}
+
+h3 {
+    color: #2d0237; /* Color para los títulos de los libros */
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+header {
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    font-size: 60px; 
+    background-color: #a88fbd; /* Fondo verde suave */
+    color: #3e0a64; /* Color del texto blanco */
+    text-align: center; /* Centrar el texto dentro del header */
+    padding: 30px 0; /* Espaciado superior e inferior */
+    width: 100%; /* Asegura que el header cubra todo el ancho */
+    position: relative; /* Asegura que el header ocupe todo el espacio */
+    margin: 0 auto; /* Centrar el header en la página */
+}
+
+select {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #d3efe5; /* Verde suave */
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
