@@ -1,84 +1,235 @@
-/* Estilos generales */
+/* General styles for the page */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  background-image: url("./fondo_espacial.jpeg"); /* Check relative path */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensures the background covers the full screen */
 }
 
-/* Contenedor principal */
-h3 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-}
-
-/* Estilos para el formulario */
+/* Ensure that other content doesn't obscure the background */
 form {
-    background-color: #825dcc;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 900px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    align-items: center; /* Centra el contenido dentro del form */
+  position: relative; /* Makes sure the form appears above the background */
+  background-color: #69117c;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  z-index: 1; /* Makes sure form is above the background */
 }
 
-/* Contenedor de los campos, en una sola fila */
-form div.fields {
-    display: flex;
-    justify-content: space-between; /* Distribuir los campos a lo largo de la fila */
-    gap: 10px; /* Espacio entre los campos */
+/* Title Styling */
+h3 {
+  text-align: center; /* Center text */
+  color: #8734b3; /* Title color */
+  margin-top: 40px; /* Space above for better separation */
+  font-size: 50px; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  letter-spacing: 2px; /* Letter spacing */
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6), -1px -1px 0 #f6e714,
+    1px 1px 0 #f6e714, 0 0 25px rgba(7, 197, 255, 0.8),
+    0 0 5px rgba(7, 197, 255, 0.9); /* Text shadow and glow effects */
 }
 
-/* Estilos para cada campo de entrada (Título, Actor, Género, Año) */
-form div.fields > div {
-    flex: 1 1 22%; /* Los campos ocuparán un 22% del ancho, pero ajustarán su tamaño */
-    min-width: 150px; /* Establecer un ancho mínimo */
+/* Form container */
+form {
+  width: 80%;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #3e0e49;
+  border-radius: 18px;
+  border-color: #d32f2f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1; /* Places form above the background */
 }
 
-/* Estilos para las etiquetas */
+/* Container for the fields */
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Each field */
+.field {
+  flex: 1 1 180px;
+  min-width: 150px;
+  margin-bottom: 10px;
+}
+
+/* Labels for the fields */
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #d6bebe;
-    font-size: 14px;
+  display: inline;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #d8c5c5;
+  font-size: 12px;
 }
 
-/* Estilos para los inputs y selects */
+/* Style for text inputs and selects */
 input[type="text"],
 input[type="number"],
 select {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Style for buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Submit (search) button */
+button[type="submit"] {
+  background-color: #4a76e7;
+  color: rgb(227, 233, 73);
+  padding: 12px 24px; /* Increased padding */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; /* Increased font size */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #1ad1f6;
+}
+
+/* Clear button */
+button#clear-button {
+  background-color: #865c0c;
+  color: rgba(80, 15, 15, 0.929);
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+button#clear-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Style for empty fields */
+input:invalid {
+  border: 1px solid #f44336;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  h3 {
+    font-size: 24px;
+  }
+
+  .fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .field {
+    max-width: 100%;
+  }
+
+  form {
+    width: 95%;
+  }
+}
+
+/* Movie container styles */
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+  gap: 10px; /* Reducir el espacio entre las tarjetas */
+  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Movie card styles */
+.movie {
+  background: linear-gradient(
+    135deg,
+    rgba(92, 42, 135, 0.8),
+    rgba(25, 0, 78, 0.9)
+  );
+  padding: 15px; /* Reducir el padding */
+  margin: 10px;
+  width: 200px; /* Reducir el ancho */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease,
+    border 0.3s ease;
+}
+
+/* Hover effect for movie cards */
+.movie:hover {
+  transform: translateY(-8px); /* Reducir el efecto de desplazamiento */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  filter: brightness(1.2);
+  border: 3px solid #f6e714;
+}
+
+/* Gradient border effect for movies */
+.movie {
+  border-image: linear-gradient(135deg, #f6e714, #2b54bb) 1;
+}
+
+/* Title styling for movie card */
+.movie-title {
+  font-size: 20px;
+  color: #f0f0f0;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+/* Movie details styling */
+.movie p {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Movie poster image styling */
+.movie img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Responsive styling for movie cards on smaller screens */
+@media (max-width: 768px) {
+  .movie {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
+    max-width: 280px; /* Reducir el tamaño máximo en pantallas más pequeñas */
+  }
 }
 
-/* Estilo para el botón */
-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 30%;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos de enfoque en inputs y select */
-input:focus,
-select:focus {
-    border-color: #007bff;
-    outline: none;
+/* "No movies" message styling */
+.no-movies-message {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  padding: 20px;
+  background-color: #ff4444;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }

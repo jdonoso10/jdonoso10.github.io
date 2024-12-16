@@ -1,47 +1,56 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BestMoviesEver.com</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
-
 <body>
-    <h3>Buscador de películas</h3>
-    <form>
+    <h3>BestMoviesEver.com</h3>
+    <form id="search-form">
         <div class="fields">
-            <div>
-                <label for="titulo">Título:</label>
-                <input id="titulo" name="titulo" type="text" placeholder="Título..." />
+            <div class="field">
+                <label for="title">Title:</label>
+                <input id="title" name="title" type="text" placeholder="Movie title..." />
             </div>
-            <div>
+            <div class="field">
                 <label for="actor">Actor:</label>
-                <input id="actor" name="actor" type="text" placeholder="Nombre..." />
+                <input id="actor" name="actor" type="text" placeholder="Actor/Actress name..." />
             </div>
-            <div>
-                <label for="genero">Género:</label>
-                <select id="genero" name="genero">
-                    <option value="">Género...</option>
-                    <option value="comedia">Comedia</option>
-                    <option value="accion">Acción</option>
+            <div class="field">
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre">
+                    <option value="">Movie genre...</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="action">Action</option>
                     <option value="drama">Drama</option>
                 </select>
             </div>
-            <div>
-                <label for="anyo">Año:</label>
-                <input id="anyo" name="anyo" type="number" placeholder="2000..." min="1900" max="2025" />
+            <div class="field">
+                <label for="year">Year:</label>
+                <input id="year" name="year" type="number" placeholder="1900..." min="1900" max="2025" />
             </div>
-        </div>
-
-        <div>
-            <button type="submit">Buscar</button>
+            <div class="field">
+                <label for="sortDuration">Sort by duration:</label>
+                <select id="sortDuration" name="sortDuration">
+                    <option value="">Ascending/descending</option>
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+            </div>
+            <button type="submit">SEARCH</button>
+            <button type="button" id="clear-button">CLEAR</button>
         </div>
     </form>
+
+    <div id="movies-container" class="movies-container">
+        <!-- Movies will be displayed here -->
+    </div>
+
+    <script src="main.js"></script>
 </body>
-
-
 
 </html>
