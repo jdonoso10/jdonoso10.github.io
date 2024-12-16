@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <p>Home Page de JDonoso</p>
 
+
+<body>
+    <h3>Buscador de películas</h3>
+    <form>
+        <div class="fields">
+            <div>
+                <label for="titulo">Título:</label>
+                <input id="titulo" name="titulo" type="text" placeholder="Título..." />
+            </div>
+            <div>
+                <label for="actor">Actor:</label>
+                <input id="actor" name="actor" type="text" placeholder="Nombre..." />
+            </div>
+            <div>
+                <label for="genero">Género:</label>
+                <select id="genero" name="genero">
+                    <option value="">Género...</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="accion">Acción</option>
+                    <option value="drama">Drama</option>
+                </select>
+            </div>
+            <div>
+                <label for="anyo">Año:</label>
+                <input id="anyo" name="anyo" type="number" placeholder="2000..." min="1900" max="2025" />
+            </div>
+        </div>
+
+        <div>
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
 </body>
+
+
+
 </html>
