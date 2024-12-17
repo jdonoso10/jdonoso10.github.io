@@ -1,56 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BestMoviesEver.com</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Best Movies Ever</title>
 </head>
-
 <body>
-    <h3>BestMoviesEver.com</h3>
-    <form id="search-form">
-        <div class="fields">
-            <div class="field">
-                <label for="title">Title:</label>
-                <input id="title" name="title" type="text" placeholder="Movie title..." />
-            </div>
-            <div class="field">
-                <label for="actor">Actor:</label>
-                <input id="actor" name="actor" type="text" placeholder="Actor/Actress name..." />
-            </div>
-            <div class="field">
-                <label for="genre">Genre:</label>
-                <select id="genre" name="genre">
-                    <option value="">Movie genre...</option>
-                    <option value="comedy">Comedy</option>
-                    <option value="action">Action</option>
-                    <option value="drama">Drama</option>
-                </select>
-            </div>
-            <div class="field">
-                <label for="year">Year:</label>
-                <input id="year" name="year" type="number" placeholder="1900..." min="1900" max="2025" />
-            </div>
-            <div class="field">
-                <label for="sortDuration">Sort by duration:</label>
-                <select id="sortDuration" name="sortDuration">
-                    <option value="">Ascending/descending</option>
-                    <option value="ascending">Ascending</option>
-                    <option value="descending">Descending</option>
-                </select>
-            </div>
-            <button type="submit">SEARCH</button>
-            <button type="button" id="clear-button">CLEAR</button>
-        </div>
-    </form>
+    <h1>BestMoviesEver.com</h1>
+    <div id="div-formulario">
+        <input type="text" id="t-titulo" placeholder="Título">
+        <button id="b-titulo">Buscar</button>
+        <input type="text" id="t-actor" placeholder="Actor">
+        <button id="b-actor">Buscar</button>
+        <select id="s-genero">
+            <option value="action">Acción</option>
+            <option value="crime">Crimen</option>
+            <option value="drama">Drama</option>
+            <option value="terror">Terror</option>
+        </select>
+        <button id="b-genero">Buscar</button>
+        <input type="number" id="t-anyo" placeholder="Año" min="1900" max="2030">
+        <button id="b-anyo">Buscar</button>
 
-    <div id="movies-container" class="movies-container">
-        <!-- Movies will be displayed here -->
+        <label for="r-asc">Duración ascendente</label>
+        <input type="radio" id="r-asc" name="ordenar" value="ascendente">
+        <label for="r-desc">Duración descendente</label>
+        <input type="radio" id="r-desc" name="ordenar" value="descendente">
+        <button id="b-ordenar">Ordenar</button>        
     </div>
-
-    <script src="main.js"></script>
+    <div id="container">
+        <!-- Tarjeta 1 -->
+        <!--
+        <div class="card">
+            <img src="https://via.placeholder.com/300x450" alt="Póster de película">
+            <div class="card-content">
+                <h3>El Padrino</h3>
+                <p><strong>Director:</strong> Francis Ford Coppola</p>
+                <p><strong>Año:</strong> 1972</p>
+                <p><span class="genre">Género:</span> Drama, Crimen</p>
+            </div>
+        </div>
+        -->
+    </div>
 </body>
-
 </html>
+<script src="./myhttp.js"></script>
+<script src="./app.js"></script>
+<script src="./gestor-eventos.js"></script>
