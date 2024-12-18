@@ -1,6 +1,7 @@
 const URL = 'https://fpaniaguajavascript.github.io/movies-250.json';
 
 let peliculas;
+let peliculasFiltradas;
 
 function generateCard(pelicula) {
 
@@ -44,40 +45,70 @@ function generateCard(pelicula) {
 
     //7. Género
     const nuevoParrafoGenero = document.createElement("p");
-    const nuevoSpan = document.createElement("span");
-    nuevoParrafoGenero.appendChild(nuevoSpan);
-    nuevoSpan.textContent = "Género: ";
+    const nuevoSpanGenero = document.createElement("span"); // Crear un nuevo span para el género
+    nuevoParrafoGenero.appendChild(nuevoSpanGenero);
+    nuevoSpanGenero.textContent = "Género: ";
     nuevoContenido.appendChild(nuevoParrafoGenero);
     const textGenero = document.createTextNode(pelicula.Genre);
     nuevoParrafoGenero.appendChild(textGenero);
 
-
+    //8. Duración
+    const nuevoParrafoDuracion = document.createElement("p");
+    const nuevoSpanDuracion = document.createElement("span"); // Crear un nuevo span para la duración
+    nuevoParrafoDuracion.appendChild(nuevoSpanDuracion);
+    nuevoSpanDuracion.textContent = "Duración: ";
+    nuevoContenido.appendChild(nuevoParrafoDuracion);
+    const textDuracion = document.createTextNode(pelicula.Runtime);
+    nuevoParrafoDuracion.appendChild(textDuracion);
 
 
     //Último paso: Agregar al contenedor la ficha recién creada
     document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
 }
 
+
+//***** Funcion para sacar los géneros del .json y crear campos en el desplegable de html
+function generarDesplegableGenero(peliculas){
+    //Extraemos los géneros del fichero json 
+    let setGeneros = new Set();
+    peliculas.forEach(pelicula=>{
+        let generos = pelicula.Genre.split(',').map(genero=>genero.trim());
+        generos.forEach(genero=>setGeneros.add(genero));
+
+    });
+
+    //<option value="drama">Drama</option>
+    let arrayGeneros = Array.from(setGeneros);
+    arrayGeneros.sort().forEach(genero=>{
+        let generoOption = document.createElement("option");
+        generoOption.setAttribute("value",genero.toLowerCase());
+        generoOption.textContent=genero;
+        document.querySelector("#s-genero").appendChild(generoOption);
+    });
+}
+
 function processMovie(data) {
     peliculas = data.movies;
+    peliculasFiltradas = Array.from(peliculas);//crea nuevo Array
+    generarDesplegableGenero(peliculas);
 
-    //     //Recorremos con bucle tradicional:
+    //     Recorremos con bucle tradicional:
     //     for (let i=0;i<peliculas.length;i++) {
     //         console.log("Duration: " + peliculas[i].Runtime);
     //     }
 
-    //    //Recorremos con bucle for-of, recorre colecciones
+    //    Recorremos con bucle for-of, recorre colecciones
     //     for (pelicula of peliculas) {
     //         console.log("Director: " + pelicula.Director);
     //     }
 
-    //     //Recorremos con for-in, recorre el contenido de un objeto
+    //     Recorremos con for-in, recorre el contenido de un objeto
     //     for (atributo in peliculas[0]) {
     //         console.log(atributo, peliculas[0][atributo]);
     //     }
 
 
-    //     //Recorremos con el método forEach:
+    //     Recorremos con el método forEach:
     peliculas.forEach(pelicula => {
         generateCard(pelicula);
         // console.log("Título: " + pelicula.Title);
@@ -92,9 +123,3 @@ function clearCards() {
 
 
 doGetRequest(URL, processMovie);
-
-
-
-
-
-

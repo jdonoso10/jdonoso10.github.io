@@ -98,7 +98,11 @@ label {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
+              box-shadow 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
+              border-style 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
+              border-color 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
+              border-width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
   border-style: ridge;
   border-color: #d8c5c5;
   display: flex;
@@ -116,6 +120,8 @@ label {
   border-color: #d7b667;
   border-width: 10px;
 }
+
+
 
 .card img {
   width: 100%;
