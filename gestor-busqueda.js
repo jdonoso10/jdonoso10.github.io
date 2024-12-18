@@ -1,4 +1,3 @@
-let peliculasFiltradas = peliculas;
 
 //Se busca pulsando el boton buscar de tiulo
 document.querySelector("#b-titulo").addEventListener("click", () => {
@@ -34,7 +33,7 @@ document.querySelector("#b-anyo").addEventListener("click", () => {
 function filtrarPeliculas(idElementoBusqueda, nombreAtributoBusqueda) {
     clearCards();
     const textoBusqueda = document.querySelector(idElementoBusqueda).value;
-    const peliculasFiltradas =
+    peliculasFiltradas =
         peliculas.filter(pelicula =>
             pelicula[nombreAtributoBusqueda]
                 .toUpperCase()

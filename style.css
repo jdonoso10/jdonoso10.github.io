@@ -23,6 +23,15 @@ h1 {
     0 0 5px rgba(7, 197, 255, 0.9);
 }
 
+#resultados {
+  text-align: left;
+  color: #0ef6a9;
+  margin-top: 40px;
+  margin-left: 80px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 /* Contenedor del formulario */
 #div-formulario {
   width: 80%;

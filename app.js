@@ -4,7 +4,9 @@ let peliculas;
 let peliculasFiltradas;
 
 function generateCard(pelicula) {
-
+    //0. mostrar nº de resultados
+    document.querySelector("#resultados").textContent="Número:" + peliculasFiltradas.length;
+    console.log(peliculasFiltradas.length);
     //1. Crear la tarjeta
     const nuevaCard = document.createElement("div");//Crea un elemento de tipo div
     nuevaCard.setAttribute("class", "card");
@@ -68,21 +70,21 @@ function generateCard(pelicula) {
 
 
 //***** Funcion para sacar los géneros del .json y crear campos en el desplegable de html
-function generarDesplegableGenero(peliculas){
+function generarDesplegableGenero(peliculas) {
     //Extraemos los géneros del fichero json 
     let setGeneros = new Set();
-    peliculas.forEach(pelicula=>{
-        let generos = pelicula.Genre.split(',').map(genero=>genero.trim());
-        generos.forEach(genero=>setGeneros.add(genero));
+    peliculas.forEach(pelicula => {
+        let generos = pelicula.Genre.split(',').map(genero => genero.trim());
+        generos.forEach(genero => setGeneros.add(genero));
 
     });
 
     //<option value="drama">Drama</option>
     let arrayGeneros = Array.from(setGeneros);
-    arrayGeneros.sort().forEach(genero=>{
+    arrayGeneros.sort().forEach(genero => {
         let generoOption = document.createElement("option");
-        generoOption.setAttribute("value",genero.toLowerCase());
-        generoOption.textContent=genero;
+        generoOption.setAttribute("value", genero.toLowerCase());
+        generoOption.textContent = genero;
         document.querySelector("#s-genero").appendChild(generoOption);
     });
 }
