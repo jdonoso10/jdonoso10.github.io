@@ -1,28 +1,12 @@
-const URL = 'https://fpaniaguajavascript.github.io/movies-250.json';
+const URL = 'https://www.omdbapi.com/?i=tt3896198&apikey=51ec4268';
 
 let peliculas;
 let peliculasFiltradas;
 
 function processMovie(data) {
-    peliculas = data.movies;
+    peliculas = data.Search;
     peliculasFiltradas = Array.from(peliculas);//crea nuevo Array
     generarDesplegableGenero(peliculas);
-
-    //     Recorremos con bucle tradicional:
-    //     for (let i=0;i<peliculas.length;i++) {
-    //         console.log("Duration: " + peliculas[i].Runtime);
-    //     }
-
-    //    Recorremos con bucle for-of, recorre colecciones
-    //     for (pelicula of peliculas) {
-    //         console.log("Director: " + pelicula.Director);
-    //     }
-
-    //     Recorremos con for-in, recorre el contenido de un objeto
-    //     for (atributo in peliculas[0]) {
-    //         console.log(atributo, peliculas[0][atributo]);
-    //     }
-
 
     //     Recorremos con el método forEach:
     peliculas.forEach(pelicula => {
