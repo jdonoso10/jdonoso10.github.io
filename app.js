@@ -3,10 +3,40 @@ const URL = 'https://fpaniaguajavascript.github.io/movies-250.json';
 let peliculas;
 let peliculasFiltradas;
 
+function processMovie(data) {
+    peliculas = data.movies;
+    peliculasFiltradas = Array.from(peliculas);//crea nuevo Array
+    generarDesplegableGenero(peliculas);
+
+    //     Recorremos con bucle tradicional:
+    //     for (let i=0;i<peliculas.length;i++) {
+    //         console.log("Duration: " + peliculas[i].Runtime);
+    //     }
+
+    //    Recorremos con bucle for-of, recorre colecciones
+    //     for (pelicula of peliculas) {
+    //         console.log("Director: " + pelicula.Director);
+    //     }
+
+    //     Recorremos con for-in, recorre el contenido de un objeto
+    //     for (atributo in peliculas[0]) {
+    //         console.log(atributo, peliculas[0][atributo]);
+    //     }
+
+
+    //     Recorremos con el método forEach:
+    peliculas.forEach(pelicula => {
+        generateCard(pelicula);
+        // console.log("Título: " + pelicula.Title);
+
+    });
+}
+
 function generateCard(pelicula) {
     //0. mostrar nº de resultados
-    document.querySelector("#resultados").textContent="Número:" + peliculasFiltradas.length;
+    document.querySelector("#resultados").textContent="Mostrando: " + peliculasFiltradas.length + " resultado(s)";
     console.log(peliculasFiltradas.length);
+
     //1. Crear la tarjeta
     const nuevaCard = document.createElement("div");//Crea un elemento de tipo div
     nuevaCard.setAttribute("class", "card");
@@ -47,7 +77,7 @@ function generateCard(pelicula) {
 
     //7. Género
     const nuevoParrafoGenero = document.createElement("p");
-    const nuevoSpanGenero = document.createElement("span"); // Crear un nuevo span para el género
+    const nuevoSpanGenero = document.createElement("strong"); // Crear un nuevo span para el género
     nuevoParrafoGenero.appendChild(nuevoSpanGenero);
     nuevoSpanGenero.textContent = "Género: ";
     nuevoContenido.appendChild(nuevoParrafoGenero);
@@ -56,7 +86,7 @@ function generateCard(pelicula) {
 
     //8. Duración
     const nuevoParrafoDuracion = document.createElement("p");
-    const nuevoSpanDuracion = document.createElement("span"); // Crear un nuevo span para la duración
+    const nuevoSpanDuracion = document.createElement("strong"); // Crear un nuevo span para la duración
     nuevoParrafoDuracion.appendChild(nuevoSpanDuracion);
     nuevoSpanDuracion.textContent = "Duración: ";
     nuevoContenido.appendChild(nuevoParrafoDuracion);
@@ -67,7 +97,6 @@ function generateCard(pelicula) {
     //Último paso: Agregar al contenedor la ficha recién creada
     document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
 }
-
 
 //***** Funcion para sacar los géneros del .json y crear campos en el desplegable de html
 function generarDesplegableGenero(peliculas) {
@@ -86,35 +115,6 @@ function generarDesplegableGenero(peliculas) {
         generoOption.setAttribute("value", genero.toLowerCase());
         generoOption.textContent = genero;
         document.querySelector("#s-genero").appendChild(generoOption);
-    });
-}
-
-function processMovie(data) {
-    peliculas = data.movies;
-    peliculasFiltradas = Array.from(peliculas);//crea nuevo Array
-    generarDesplegableGenero(peliculas);
-
-    //     Recorremos con bucle tradicional:
-    //     for (let i=0;i<peliculas.length;i++) {
-    //         console.log("Duration: " + peliculas[i].Runtime);
-    //     }
-
-    //    Recorremos con bucle for-of, recorre colecciones
-    //     for (pelicula of peliculas) {
-    //         console.log("Director: " + pelicula.Director);
-    //     }
-
-    //     Recorremos con for-in, recorre el contenido de un objeto
-    //     for (atributo in peliculas[0]) {
-    //         console.log(atributo, peliculas[0][atributo]);
-    //     }
-
-
-    //     Recorremos con el método forEach:
-    peliculas.forEach(pelicula => {
-        generateCard(pelicula);
-        // console.log("Título: " + pelicula.Title);
-
     });
 }
 
