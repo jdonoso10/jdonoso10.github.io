@@ -46,7 +46,10 @@ h1 {
   z-index: 1;
   display: flex;
   flex-wrap: wrap;
+  height: 100px;
   gap: 10px; /* Espaciado entre los elementos */
+  justify-content: center; /* Centrado horizontal del contenedor */
+  align-items: center;     /* Centrado vertical del contenedor */
 }
 
 /* Campos del formulario: inputs, select, y botones */
@@ -59,7 +62,7 @@ h1 {
   margin-bottom: 5px; /* Reducir el margen inferior */
   border: 1px solid #000;
   border-radius: 4px;
-  font-size: 10px; /* Disminuir el tamaño de la fuente */
+  font-size: 14px; /* Disminuir el tamaño de la fuente */
   display: inline-block; /* Asegura que los elementos estén en línea */
   white-space: nowrap; /* Evita que el contenido se divida en varias líneas */
 }
@@ -82,12 +85,13 @@ button:hover {
 
 /* Labels */
 label {
-  display: inline-block;
-  margin-right: 10px;
+  display: inline-flex;
   font-weight: bold;
   color: #d8c5c5;
   font-size: 10px; /* Reducir el tamaño de la fuente */
   white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -158,6 +162,12 @@ label {
 .card-content .genre {
   font-weight: bold;
   color: #f39c12;
+}
+
+#foot {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color:rgba(7, 197, 255, 0.8)
 }
 
 /* Responsive styles */

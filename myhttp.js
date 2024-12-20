@@ -1,4 +1,5 @@
-function doGetRequest(url, processData) {
+// Función para hacer la solicitud GET
+function doGetRequest(url, processMovie) {
     fetch(url)
         .then((response) => {
             if (!response.ok) {
@@ -7,7 +8,7 @@ function doGetRequest(url, processData) {
             return response.json();
         })
         .then((data) => {
-            processData(data);
+            processMovie(data);  // Usamos 'processMovie' para manejar los datos
         })
         .catch((error) => console.error("Fetch error:", error));
 }

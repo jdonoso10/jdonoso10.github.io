@@ -1,4 +1,6 @@
-const URL = 'https://www.omdbapi.com/?i=tt3896198&apikey=51ec4268';
+//51ec4268&
+let URL = 'https://www.omdbapi.com/?apikey=';
+
 
 let peliculas;
 let peliculasFiltradas;
@@ -6,7 +8,7 @@ let peliculasFiltradas;
 function processMovie(data) {
     peliculas = data.Search;
     peliculasFiltradas = Array.from(peliculas);//crea nuevo Array
-    generarDesplegableGenero(peliculas);
+    // generarDesplegableGenero(peliculas);
 
     //     Recorremos con el método forEach:
     peliculas.forEach(pelicula => {
@@ -41,15 +43,6 @@ function generateCard(pelicula) {
     nuevoTitulo.textContent = pelicula.Title;
     nuevoContenido.appendChild(nuevoTitulo);
 
-    //5. Crear el director <p><strong>Director:</strong> Francis Ford Coppola</p>
-    const nuevoParrafoDirector = document.createElement("p");
-    const nuevaNegrita = document.createElement("strong");
-    nuevoParrafoDirector.appendChild(nuevaNegrita);
-    nuevaNegrita.textContent = "Director: ";
-    nuevoContenido.appendChild(nuevoParrafoDirector);
-    const textoDirector = document.createTextNode(pelicula.Director);
-    nuevoParrafoDirector.appendChild(textoDirector);
-
     //6. Año
     const nuevoParrafoAno = document.createElement("p");
     const nuevaNegrilla = document.createElement("strong");
@@ -59,46 +52,37 @@ function generateCard(pelicula) {
     const textAno = document.createTextNode(pelicula.Year);
     nuevoParrafoAno.appendChild(textAno);
 
-    //7. Género
-    const nuevoParrafoGenero = document.createElement("p");
-    const nuevoSpanGenero = document.createElement("strong"); // Crear un nuevo span para el género
-    nuevoParrafoGenero.appendChild(nuevoSpanGenero);
-    nuevoSpanGenero.textContent = "Género: ";
-    nuevoContenido.appendChild(nuevoParrafoGenero);
-    const textGenero = document.createTextNode(pelicula.Genre);
-    nuevoParrafoGenero.appendChild(textGenero);
-
-    //8. Duración
-    const nuevoParrafoDuracion = document.createElement("p");
-    const nuevoSpanDuracion = document.createElement("strong"); // Crear un nuevo span para la duración
-    nuevoParrafoDuracion.appendChild(nuevoSpanDuracion);
-    nuevoSpanDuracion.textContent = "Duración: ";
-    nuevoContenido.appendChild(nuevoParrafoDuracion);
-    const textDuracion = document.createTextNode(pelicula.Runtime);
-    nuevoParrafoDuracion.appendChild(textDuracion);
+    //7. TIPO
+    const nuevoParrafoTipo = document.createElement("p");
+    const nuevoSpanTipo = document.createElement("strong"); // Crear un nuevo span para el tipo
+    nuevoParrafoTipo.appendChild(nuevoSpanTipo);
+    nuevoSpanTipo.textContent = "Tipo: ";
+    nuevoContenido.appendChild(nuevoParrafoTipo);
+    const textTipo = document.createTextNode(pelicula.Type);
+    nuevoParrafoTipo.appendChild(textTipo);
 
 
     //Último paso: Agregar al contenedor la ficha recién creada
     document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
 }
 
-//***** Funcion para sacar los géneros del .json y crear campos en el desplegable de html
-function generarDesplegableGenero(peliculas) {
+//***** Funcion para sacar los TIPOS del .json y crear campos en el desplegable de html
+function generarDesplegableTipo(peliculas) {
     //Extraemos los géneros del fichero json 
-    let setGeneros = new Set();
+    let setTipos = new Set();
     peliculas.forEach(pelicula => {
-        let generos = pelicula.Genre.split(',').map(genero => genero.trim());
-        generos.forEach(genero => setGeneros.add(genero));
+        let tipos = pelicula.Type;
+        tipos.forEach(tipo => setTipos.add(tipo));
 
     });
 
-    //<option value="drama">Drama</option>
-    let arrayGeneros = Array.from(setGeneros);
-    arrayGeneros.sort().forEach(genero => {
-        let generoOption = document.createElement("option");
-        generoOption.setAttribute("value", genero.toLowerCase());
-        generoOption.textContent = genero;
-        document.querySelector("#s-genero").appendChild(generoOption);
+    // <option value="drama">Drama</option>
+    let arrayTipos = Array.from(setTipos);
+    arrayTipos.sort().forEach(tipo => {
+        let tipoOption = document.createElement("option");
+        tipoOption.setAttribute("value", tipo.toLowerCase());
+        tipoOption.textContent = tipo;
+        document.querySelector("#s-tipo").appendChild(tipoOption);
     });
 }
 
@@ -106,6 +90,3 @@ function clearCards() {
     //document.querySelector("#container").innerHTML="";//Chapuza
     document.querySelectorAll(".card").forEach(card => card.remove());//Elegante
 }
-
-
-doGetRequest(URL, processMovie);
