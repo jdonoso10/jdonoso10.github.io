@@ -16,7 +16,7 @@ document.getElementById('b-buscar-omdb').addEventListener('click', function () {
 
 //Se busca pulsando el boton buscar de titulo
 document.querySelector("#b-titulo").addEventListener("click", () => {
-    filtrarPeliculas("#t-titulo", "Title");
+  filtrarPeliculas("#t-titulo", "Title");
 });
 
 document.querySelector("#s-tipo").addEventListener("change", () => {
@@ -24,7 +24,7 @@ document.querySelector("#s-tipo").addEventListener("change", () => {
 });
 
 document.querySelector("#b-anyo").addEventListener("click", () => {
-    filtrarPeliculas("#t-anyo", "Year");
+  filtrarPeliculas("#t-anyo", "Year");
 });
 
 document.querySelector("#b-reiniciar").addEventListener("click", () => {

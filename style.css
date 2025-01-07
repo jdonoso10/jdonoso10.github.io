@@ -1,13 +1,15 @@
 /* General styles for the page */
 body {
-  background-image: url("fondo_espacial.jpeg"); /* Check relative path */
-  background-size: contain;
-  background-position: center center;
-  background-repeat: repeat;
+  background-color: #2c2631;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh; /* Ensures the background covers the full screen */
+}
+
+#api-key-container {
+  color: #0ef6a9;
+  float: right;
 }
 
 /* Title Styling */
@@ -94,7 +96,6 @@ label {
   align-items: center;
 }
 
-
 /* Movie container styles */
 #container {
   display: grid;
@@ -111,11 +112,11 @@ label {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
-              box-shadow 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
-              border-style 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
-              border-color 0.4s cubic-bezier(0.42, 0, 0.58, 1), 
-              border-width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 0.4s cubic-bezier(0.42, 0, 0.58, 1),
+    box-shadow 0.4s cubic-bezier(0.42, 0, 0.58, 1),
+    border-style 0.4s cubic-bezier(0.42, 0, 0.58, 1),
+    border-color 0.4s cubic-bezier(0.42, 0, 0.58, 1),
+    border-width 0.4s cubic-bezier(0.42, 0, 0.58, 1);
   border-style: ridge;
   border-color: #d8c5c5;
   display: flex;
@@ -133,8 +134,6 @@ label {
   border-color: #d7b667;
   border-width: 10px;
 }
-
-
 
 .card img {
   width: 100%;
@@ -173,13 +172,16 @@ label {
 /* Responsive styles */
 @media (max-width: 900px) {
   #container {
-      grid-template-columns: repeat(3, 1fr); /* 3 cards per row on medium screens */
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 cards per row on medium screens */
   }
 }
 
 @media (max-width: 600px) {
   #container {
-      grid-template-columns: 1fr; /* 1 card per row on small screens */
+    grid-template-columns: 1fr; /* 1 card per row on small screens */
   }
 }
 

@@ -10,38 +10,38 @@ function processMovie(data) {
     peliculasFiltradas = Array.from(peliculas);//crea nuevo Array
     // generarDesplegableGenero(peliculas);
 
-    //     Recorremos con el método forEach:
-    peliculas.forEach(pelicula => {
-        generateCard(pelicula);
-        // console.log("Título: " + pelicula.Title);
-
-    });
+  //     Recorremos con el método forEach:
+  peliculas.forEach((pelicula) => {
+    generateCard(pelicula);
+    // console.log("Título: " + pelicula.Title);
+  });
 }
 
 function generateCard(pelicula) {
-    //0. mostrar nº de resultados
-    document.querySelector("#resultados").textContent="Mostrando: " + peliculasFiltradas.length + " resultado(s)";
-    console.log(peliculasFiltradas.length);
+  //0. mostrar nº de resultados
+  document.querySelector("#resultados").textContent =
+    "Mostrando: " + peliculasFiltradas.length + " resultado(s)";
+  console.log(peliculasFiltradas.length);
 
-    //1. Crear la tarjeta
-    const nuevaCard = document.createElement("div");//Crea un elemento de tipo div
-    nuevaCard.setAttribute("class", "card");
+  //1. Crear la tarjeta
+  const nuevaCard = document.createElement("div"); //Crea un elemento de tipo div
+  nuevaCard.setAttribute("class", "card");
 
-    //2. Crear la imagen
-    const nuevaImg = document.createElement("img");
-    nuevaImg.setAttribute("src", pelicula.Poster);
-    nuevaImg.setAttribute("alt", `Póster de la película ${pelicula.Title}`);
-    nuevaCard.appendChild(nuevaImg);
+  //2. Crear la imagen
+  const nuevaImg = document.createElement("img");
+  nuevaImg.setAttribute("src", pelicula.Poster);
+  nuevaImg.setAttribute("alt", `Póster de la película ${pelicula.Title}`);
+  nuevaCard.appendChild(nuevaImg);
 
-    //3. Crear el contenido de la tarjeta
-    const nuevoContenido = document.createElement("div");
-    nuevoContenido.setAttribute("class", "card-content");
-    nuevaCard.appendChild(nuevoContenido);
+  //3. Crear el contenido de la tarjeta
+  const nuevoContenido = document.createElement("div");
+  nuevoContenido.setAttribute("class", "card-content");
+  nuevaCard.appendChild(nuevoContenido);
 
-    //4. Crear el h3 del título <h3>El Padrino</h3>
-    const nuevoTitulo = document.createElement("h3");
-    nuevoTitulo.textContent = pelicula.Title;
-    nuevoContenido.appendChild(nuevoTitulo);
+  //4. Crear el h3 del título <h3>El Padrino</h3>
+  const nuevoTitulo = document.createElement("h3");
+  nuevoTitulo.textContent = pelicula.Title;
+  nuevoContenido.appendChild(nuevoTitulo);
 
     //6. Año
     const nuevoParrafoAno = document.createElement("p");
@@ -61,9 +61,8 @@ function generateCard(pelicula) {
     const textTipo = document.createTextNode(pelicula.Type);
     nuevoParrafoTipo.appendChild(textTipo);
 
-
-    //Último paso: Agregar al contenedor la ficha recién creada
-    document.querySelector("#container").appendChild(nuevaCard);//Agregamos el div al contenedor
+  //Último paso: Agregar al contenedor la ficha recién creada
+  document.querySelector("#container").appendChild(nuevaCard); //Agregamos el div al contenedor
 }
 
 //***** Funcion para sacar los TIPOS del .json y crear campos en el desplegable de html
